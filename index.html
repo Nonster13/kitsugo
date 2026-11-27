@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111426">
+  <meta name="description" content="Kitsugo — your Japanese learning companion.">
+  <title>Kitsugo — Learn Japanese</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="dashboard" aria-label="Kitsugo home">
+        <span class="brand-mark">狐</span>
+        <span class="brand-name">kitsugo<span class="brand-dot">.</span></span>
+      </a>
+      <div class="side-label">LEARN</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-page="vocabulary"><span>あ</span> Vocabulary</button>
+        <button class="nav-item" data-page="kanji"><span>字</span> Kanji</button>
+        <button class="nav-item" data-page="grammar"><span>文</span> Grammar</button>
+        <button class="nav-item" data-page="reading"><span>読</span> Reading</button>
+      </nav>
+      <div class="side-label side-label-spaced">PREPARE</div>
+      <nav class="main-nav" aria-label="Exam navigation">
+        <button class="nav-item" data-page="exams"><span>▤</span> JLPT exams</button>
+        <button class="nav-item" data-page="review"><span>↻</span> Review mistakes</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="fox-card">
+          <div class="fox-emoji">🦊</div>
+          <strong>little by little</strong>
+          <p>毎日少しずつ<br>Every day, a little.</p>
+        </div>
+        <div class="profile-row">
+          <div class="avatar">K</div>
+          <div><strong>Learner</strong><small>Beginner · N5 path</small></div>
+          <span class="profile-more">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Kitsugo <span>/</span> <strong id="currentSection">Dashboard</strong></div>
+        <div class="top-actions">
+          <div class="streak-pill">✦ <span id="streakCount">1</span> day streak</div>
+          <div class="level-pill">N5 PATH</div>
+        </div>
+      </header>
+
+      <section class="page active-page" id="page-dashboard">
+        <div class="welcome-row">
+          <div>
+            <div class="eyebrow">YOUR LEARNING SPACE</div>
+            <h1>おかえりなさい<span class="title-period">.</span></h1>
+            <p class="subtitle">Welcome back. Ready to make progress today?</p>
+          </div>
+          <div class="date-chip" id="todayDate"></div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-copy">
+            <div class="hero-tag"><span class="pulse"></span> YOUR NEXT STEP</div>
+            <h2>Build your<br><em>Japanese</em> foundation.</h2>
+            <p>Small sessions. Real progress. Your journey to N5 starts here.</p>
+            <button class="primary-button" data-page="vocabulary">Continue learning <span>→</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+            <div class="hero-kanji">日本語</div>
+            <div class="hero-fox">🦊</div>
+            <span class="floating-star star-one">✦</span><span class="floating-star star-two">✧</span>
+          </div>
+          <div class="hero-index">01 — DAILY PRACTICE</div>
+        </div>
+
+        <div class="section-heading">
+          <div><div class="eyebrow">OVERVIEW</div><h2>Your progress</h2></div>
+          <span class="muted-small">Your activity is saved on this device</span>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon lavender">✦</div><div class="stat-label">TOTAL XP</div><div class="stat-value" id="xpValue">0</div><div class="stat-foot">Keep learning to earn more</div></article>
+          <article class="stat-card"><div class="stat-icon mint">あ</div><div class="stat-label">WORDS LEARNED</div><div class="stat-value" id="wordsValue">0</div><div class="stat-foot">Vocabulary mastered</div></article>
+          <article class="stat-card"><div class="stat-icon peach">字</div><div class="stat-label">KANJI STUDIED</div><div class="stat-value" id="kanjiValue">0</div><div class="stat-foot">Characters in your collection</div></article>
+          <article class="stat-card"><div class="stat-icon blue">▤</div><div class="stat-label">QUIZZES DONE</div><div class="stat-value" id="quizValue">0</div><div class="stat-foot">Practice makes progress</div></article>
+        </div>
+
+        <div class="dashboard-lower">
+          <div class="panel daily-panel">
+            <div class="panel-heading"><div><div class="eyebrow">TODAY'S PLAN</div><h3>Daily practice</h3></div><span class="mini-badge">3 tasks</span></div>
+            <div class="task-row"><div class="task-symbol purple-symbol">あ</div><div class="task-info"><strong>Vocabulary warm-up</strong><small>Learn 5 useful words</small></div><button class="task-go" data-page="vocabulary">Start →</button></div>
+            <div class="task-row"><div class="task-symbol green-symbol">字</div><div class="task-info"><strong>Kanji practice</strong><small>Study 3 N5 characters</small></div><button class="task-go" data-page="kanji">Start →</button></div>
+            <div class="task-row"><div class="task-symbol orange-symbol">文</div><div class="task-info"><strong>Grammar checkpoint</strong><small>Practice a core grammar point</small></div><button class="task-go" data-page="grammar">Start →</button></div>
+          </div>
+          <div class="panel path-panel">
+            <div class="panel-heading"><div><div class="eyebrow">YOUR ROADMAP</div><h3>JLPT N5 path</h3></div><span class="path-percent">0%</span></div>
+            <div class="progress-track"><div class="progress-fill" id="pathProgress"></div></div>
+            <div class="path-meta"><span>Getting started</span><span>JLPT N5</span></div>
+            <div class="path-note"><span class="note-dot"></span> Your progress updates as you study.</div>
+            <button class="text-button" data-page="exams">Explore exam practice <span>→</span></button>
+          </div>
+        </div>
+        <footer class="footer-note">Made for curious minds <span>·</span> 日本語を楽しもう</footer>
+      </section>
+
+      <section class="page" id="page-vocabulary">
+        <div class="page-intro"><div class="eyebrow">WORD BUILDER</div><h1>Vocabulary<span class="title-period">.</span></h1><p class="subtitle">Useful Japanese, one word at a time.</p></div>
+        <div class="study-layout">
+          <div class="flashcard panel">
+            <div class="card-topline"><span class="mini-badge">N5 STARTER</span><span id="vocabPosition" class="muted-small">1 / 8</span></div>
+            <div class="word-kanji" id="vocabWord">水</div>
+            <div class="word-reading" id="vocabReading">みず · mizu</div>
+            <div class="word-meaning" id="vocabMeaning">water</div>
+            <div class="word-example" id="vocabExample">水を飲みます。</div>
+            <div class="word-example-translation" id="vocabExampleTranslation">I drink water.</div>
+            <div class="card-controls"><button class="secondary-button" id="vocabAgain">Review again</button><button class="primary-button" id="vocabKnow">I know this <span>→</span></button></div>
+          </div>
+          <aside class="panel study-side"><div class="eyebrow">LEARNING TIP</div><h3>Say it out loud.</h3><p>Read the word, its pronunciation and the example sentence. Connecting words to context helps them stick.</p><div class="tip-divider"></div><div class="side-stat"><span>Words in this set</span><strong>8</strong></div><div class="side-stat"><span>Words marked known</span><strong id="knownWords">0</strong></div></aside>
+        </div>
+      </section>
+
+      <section class="page" id="page-kanji">
+        <div class="page-intro"><div class="eyebrow">CHARACTER STUDY</div><h1>Kanji dojo<span class="title-period">.</span></h1><p class="subtitle">Meet the building blocks of Japanese writing.</p></div>
+        <div class="content-grid" id="kanjiGrid"></div>
+      </section>
+
+      <section class="page" id="page-grammar">
+        <div class="page-intro"><div class="eyebrow">SENTENCE BUILDER</div><h1>Grammar lab<span class="title-period">.</span></h1><p class="subtitle">Understand the patterns that make Japanese work.</p></div>
+        <div class="grammar-feature panel">
+          <div class="grammar-number">01</div><div class="eyebrow">N5 GRAMMAR</div><h2>は — the topic particle</h2><p class="grammar-explain">は marks what a sentence is about. It is written は but pronounced <strong>wa</strong> when used as this particle.</p>
+          <div class="formula">[topic] <span>は</span> [information]</div>
+          <div class="grammar-example"><strong>わたしは学生です。</strong><small>Watashi wa gakusei desu. · I am a student.</small></div>
+          <div class="grammar-example"><strong>これは本です。</strong><small>Kore wa hon desu. · This is a book.</small></div>
+        </div>
+        <div class="panel exercise-panel"><div class="eyebrow">QUICK CHECK</div><h3>Choose the correct particle.</h3><p>わたし ___ ジョンです。</p><div class="choice-row" id="grammarChoices"><button class="choice-button" data-answer="は">は</button><button class="choice-button" data-answer="を">を</button><button class="choice-button" data-answer="に">に</button></div><p class="feedback" id="grammarFeedback" aria-live="polite"></p></div>
+      </section>
+
+      <section class="page" id="page-reading">
+        <div class="page-intro"><div class="eyebrow">READING ROOM</div><h1>Reading practice<span class="title-period">.</span></h1><p class="subtitle">Short passages for growing confidence.</p></div>
+        <article class="panel reading-panel"><span class="mini-badge">N5 · BEGINNER</span><h2>わたしの一日</h2><p class="reading-japanese">わたしは毎日七時に起きます。朝ごはんを食べて、学校へ行きます。学校で日本語を勉強します。</p><p class="reading-translation">I wake up at seven every day. I eat breakfast and go to school. I study Japanese at school.</p><div class="tip-divider"></div><h3>Comprehension check</h3><p>何時に起きますか。</p><div class="choice-row" id="readingChoices"><button class="choice-button" data-answer="六時">六時</button><button class="choice-button" data-answer="七時">七時</button><button class="choice-button" data-answer="八時">八時</button></div><p class="feedback" id="readingFeedback" aria-live="polite"></p></article>
+      </section>
+
+      <section class="page" id="page-exams">
+        <div class="page-intro"><div class="eyebrow">EXAM CENTER</div><h1>JLPT practice<span class="title-period">.</span></h1><p class="subtitle">Build confidence with exam-style questions.</p></div>
+        <div class="exam-banner panel"><div><div class="eyebrow">YOUR FIRST CHECKPOINT</div><h2>JLPT N5 mini mock</h2><p>A short starter quiz covering basic vocabulary and grammar. This is practice content, not an official JLPT paper.</p><div class="exam-meta"><span>5 questions</span><span>·</span><span>Untimed</span><span>·</span><span>Instant feedback</span></div></div><div class="exam-stamp">N5</div></div>
+        <div class="panel exam-panel"><div class="panel-heading"><h3 id="examTitle">Question 1 of 5</h3><span class="mini-badge">MINI MOCK</span></div><div class="progress-track"><div class="progress-fill" id="examProgress" style="width:20%"></div></div><h2 class="exam-question" id="examQuestion">「ねこ」はどういう意味ですか。</h2><div class="exam-options" id="examOptions"></div><p class="feedback" id="examFeedback" aria-live="polite"></p><div class="exam-bottom"><span class="muted-small" id="examScore">Score: 0</span><button class="primary-button" id="examNext" disabled>Next question →</button></div></div>
+      </section>
+
+      <section class="page" id="page-review">
+        <div class="page-intro"><div class="eyebrow">SMART REVIEW</div><h1>Mistake tracker<span class="title-period">.</span></h1><p class="subtitle">A place for the things you want to revisit.</p></div>
+        <div class="panel review-panel"><div class="empty-icon">↻</div><h2 id="reviewTitle">Your review list is clear.</h2><p id="reviewText">When you miss a practice question, it will appear here so you can revisit it.</p><button class="secondary-button" data-page="exams">Practice some questions</button></div>
+      </section>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

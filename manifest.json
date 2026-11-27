@@ -1,0 +1,11 @@
+{
+  "name": "Kitsugo — Learn Japanese",
+  "short_name": "Kitsugo",
+  "description": "Your Japanese learning companion.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f7fb",
+  "theme_color": "#171a30",
+  "icons": []
+}
